@@ -1,0 +1,20 @@
+$main-bg-color: #323876;
+$secondary-bg-color: #7f829e;
+
+.wrapper {
+  background: $main-bg-color;
+  display: grid;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-row: auto;
+  }
+
+  @media screen and (min-width: 900px ){
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-row: auto;
+  }
+  div:nth-child(odd) {
+    background: $secondary-bg-color;
+  }
+}
