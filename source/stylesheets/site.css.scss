@@ -1,20 +1,45 @@
 $main-bg-color: #323876;
-$secondary-bg-color: #7f829e;
+$sidebar-bg-color: #3543bf;
+$header-bg-color: #389981;
+$footer-bg-color: #ebbe0c;
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .wrapper {
-  background: $main-bg-color;
   display: grid;
-
-  @media screen and (min-width: 640px) {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-row: auto;
+  grid-template-columns: auto;
+  // grid-template-rows: auto;
+  min-height: 100vh;
+  grid-template-areas: "header" "left" "main" "right" "footer";
+  .main {
+    background: $main-bg-color;
+    grid-area: main;
   }
-
-  @media screen and (min-width: 900px ){
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-row: auto;
+  .header {
+    background: $header-bg-color;
+    grid-area: header;
   }
-  div:nth-child(odd) {
-    background: $secondary-bg-color;
+  .sidebar {
+    background: $sidebar-bg-color;
+  }
+  .left {
+    grid-area: left;
+  }
+  .right {
+    grid-area: right;
+  }
+  .footer {
+    background: $footer-bg-color;
+    grid-area: footer;
+  }
+  @media screen and (min-width: 480px) {
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 100px auto 80px;
+    grid-template-areas: "header header header" "left left left" "main main right" "footer footer footer";
+  }
+  @media screen and (min-width: 900px) {
+    grid-template-areas: "header header header" "left main right" "footer footer footer";
   }
 }
